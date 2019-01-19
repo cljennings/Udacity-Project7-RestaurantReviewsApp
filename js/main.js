@@ -5,6 +5,16 @@ var newMap
 var markers = []
 
 /**
+ * Entry point to ServiceWorker
+ */
+ if('ServiceWorker' in Navigator){
+   navigator.serviceWorker.register('/Udacity-Project7-RestaurantReviewsApp/sw.js')
+   .then(function()=>console.log('success');)
+   .catch(function()=>console.log('fail');)
+ }
+
+
+/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
