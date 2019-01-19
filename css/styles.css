@@ -41,7 +41,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 #footer {
   background-color: #444;
-  color: #aaa;
+  color: #d6d6d6;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px;
@@ -51,12 +51,13 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
-  height: 80px;
+  height: 90px;
   background-color: #252831;
   text-align:center;
 }
 nav h1 {
   margin: auto;
+	padding: 20px;
 }
 nav h1 a {
   color: #fff;
@@ -106,8 +107,8 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
-  background-color: #3397DB;
+  height: auto;
+  background-color: #124f79;
   align-items: center;
 }
 .filter-options h2 {
@@ -116,6 +117,7 @@ nav h1 a {
   font-weight: normal;
   line-height: 1;
   margin: 0 20px;
+	padding-top:10px;
 }
 .filter-options select {
   background-color: white;
@@ -131,7 +133,11 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
-  background-color: #f3f3f3;
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  background-color: #f4f4f4;
   list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
@@ -145,7 +151,7 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
+  width: 100%;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -156,7 +162,7 @@ nav h1 a {
   min-width: 100%;
 }
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #a34e00;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -170,7 +176,7 @@ nav h1 a {
   font-size: 11pt;
 }
 #restaurants-list li a {
-  background-color: orange;
+  background-color: #a85905;
   border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
@@ -184,18 +190,12 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
-  top: 0;
+
   width: 100%;
-  z-index: 1000;
+
 }
 .inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 50%;
+
 }
 .inside #map {
   background-color: #ccc;
@@ -203,9 +203,7 @@ nav h1 a {
   width: 100%;
 }
 .inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 50%;
+  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -237,10 +235,11 @@ nav h1 a {
 	width: 90%;
 }
 #restaurant-container, #reviews-container {
-  border-bottom: 1px solid #d9d9d9;
+
+	border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
-  width: 50%;
+  width: 100%;
 }
 #reviews-container {
   padding: 30px 40px 80px;
@@ -252,6 +251,13 @@ nav h1 a {
   letter-spacing: -1px;
   padding-bottom: 1pt;
 }
+
+#reviews-container h4 {
+  padding-top:10px;
+  font-size: 1.2em;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
 #reviews-list {
   margin: 0;
   padding: 0;
@@ -259,6 +265,7 @@ nav h1 a {
 #reviews-list li {
   background-color: #fff;
     border: 2px solid #f3f3f3;
+		border-radius: 10px;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
@@ -272,4 +279,51 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* ====================== Media Queries ====================== */
+
+
+@media screen and (min-width: 700px) {
+	#restaurant-img {
+		max-width: 70%;
+	}
+
+	#restaurant-cuisine {
+
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+
+	.inside #footer {
+		bottom: 0;
+	  position: absolute;
+		width: 50%;
+	}
+
+	.inside header {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  z-index: 1000;
+	}
+
+	.inside #map-container {
+	  background: blue none repeat scroll 0 0;
+	  height: 87%;
+	  position: fixed;
+	  right: 0;
+	  top: 80px;
+	  width: 50%;
+	}
+
+	#restaurant-container, #reviews-container {
+	  border-bottom: 1px solid #d9d9d9;
+	  border-top: 1px solid #fff;
+	  padding: 140px 40px 30px;
+	  width: 50%;
+	}
+
 }
