@@ -10,8 +10,11 @@ var markers = []
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
-    .then(function(resolve) {console.log('Success');},
-     /*catch*/ function(reject) {console.log('fail');
+    .then(function(resolve) {
+      console.log('ServiceWorker Registered');
+    })
+    .catch(function(reject) {
+      console.log('Service Worker Failed to register',reject);
   });
 }
 
