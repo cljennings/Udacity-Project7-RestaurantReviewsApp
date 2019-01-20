@@ -15,9 +15,9 @@ self.addEventListener('install',evt => {
     '/js/dbhelper.js',
     '/js/main.js',
     '/js/restaurant_info.js',
-    'css/styles.css',
+    '/css/styles.css',
     '/index.html',
-    'restaurant.html'
+    '/restaurant.html'
   ];
   evt.waitUntil(
     caches.open('storage').then(function(cache){
@@ -27,11 +27,16 @@ self.addEventListener('install',evt => {
 });
 
 self.addEventListener('fetch', evt => {
-  evt.respondWith(() => {
-    cache.match(evt.request).then(() => {
-      return response;
-    }).catch(() => {
-      fetch(evt.request);
+  evt.respondWith(
+    caches.match(evt.request).then((response) => {
+      if(response){
+        return response;
+      }
+      else {
+        fetch(evt.request);
+      }
+    }).catch((reject) => {
+      console.log('unsuccessful');
     })
-  })
+  )
 });
