@@ -17,6 +17,9 @@ const files = [
   '/restaurant.html'
 ];
 
+/*
+Store cached files from 'files' array
+*/
 self.addEventListener('install',evt => {
   console.log('Installed');
   evt.waitUntil(
@@ -28,7 +31,7 @@ self.addEventListener('install',evt => {
 });
 
 /*
-TODO: Show cache content offline
+Show cache content offline
 */
 self.addEventListener('fetch', evt => {
   console.log('Fetched',evt.request.url);
