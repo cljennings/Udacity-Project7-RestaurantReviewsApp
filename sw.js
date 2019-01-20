@@ -26,17 +26,23 @@ self.addEventListener('install',evt => {
   )
 });
 
+/*
+TODO: Show cache content offline
+*/
 self.addEventListener('fetch', evt => {
-  evt.respondWith(
-    caches.match(evt.request).then((response) => {
-      if(response){
-        return response;
-      }
-      else {
-        fetch(evt.request);
-      }
-    }).catch((reject) => {
-      console.log('unsuccessful');
-    })
-  )
+  if(evt.request.method == 'GET'){
+    evt.respondWith(
+      caches.match(evt.request).then((response) => {
+        if(response){
+          return response;
+        }
+        else {
+          fetch(evt.request);
+          console.log('Request',evt.request);
+        }
+      }).catch((reject) => {
+        console.log('unsuccessful',reject);
+      })
+    )
+  }
 });
