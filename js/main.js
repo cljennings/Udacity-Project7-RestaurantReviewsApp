@@ -6,12 +6,6 @@ var markers = []
 
 /**
  * Entry point to ServiceWorker
-
- if('ServiceWorker' in Navigator){
-   navigator.serviceWorker.register('/sw.js')
-//  .then(function(resolve) => console.log('success'))
-//  .catch(function(error) => console.log('fail'))
- }
 */
 
 if ('serviceWorker' in navigator) {
@@ -19,7 +13,7 @@ if ('serviceWorker' in navigator) {
     .then(function(resolve) {console.log('Success');},
      /*catch*/ function(reject) {console.log('fail');
   });
-} 
+}
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
